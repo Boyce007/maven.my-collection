@@ -28,7 +28,7 @@ public class SetNextTest {
         node.setNext(expectedNext);
 
         // Assert
-        Assert.assertEquals(expectedNext, node.getNext());
+        Assert.assertNull(node.getNext());
     }
 
     @Test(expected = IllegalArgumentException.class)
