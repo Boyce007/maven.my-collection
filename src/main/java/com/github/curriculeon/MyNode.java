@@ -27,13 +27,11 @@ public class MyNode<SomeType> {
     }
 
     public void setNext(MyNode<SomeType> next) {
-        try {
-            if (next.getNext() == this || next == this) {
-                throw new IllegalArgumentException();
-            }
-        } catch(NullPointerException e){
-            this.next = next;
+        if (next == this) {
+            throw new IllegalArgumentException();
         }
+            this.next = next;
+
 
 
     }
