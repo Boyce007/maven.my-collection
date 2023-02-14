@@ -6,12 +6,17 @@ public class MyArrayList<SomeType> implements MyCollectionInterface<SomeType> {
 
     private SomeType[] content;
     private Integer index;
+
+    private static final Integer RE_SIZE = 5;
     public MyArrayList() {
         index = 0;
         content = (SomeType[]) new Object[10];
     }
 
     public MyArrayList(SomeType[] valuesToBePopulatedWith) {
+        for (SomeType value:valuesToBePopulatedWith) {
+            add(value);
+        }
 
 
 
@@ -19,7 +24,19 @@ public class MyArrayList<SomeType> implements MyCollectionInterface<SomeType> {
 
     @Override
     public void add(SomeType objectToAdd) {
-
+        Integer threshold = content.length-1;
+        // Do we have enough space
+        if(index >= threshold) {
+            // If we don't enough space , we need create more space
+            Integer newSize = content.length + RE_SIZE;
+            SomeType[] newContent = (SomeType[])  new Object[newSize];
+            System.arraycopy(content, 0, newContent, 0 , content.length);
+            content = newContent;
+        }
+        // place element where ever index is
+        content[index] = objectToAdd;
+        // increment index by 1
+        index++;
     }
 
     @Override
