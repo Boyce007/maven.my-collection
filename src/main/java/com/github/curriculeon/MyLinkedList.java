@@ -69,6 +69,7 @@ public class MyLinkedList<SomeType> implements MyCollectionInterface<SomeType>{
     public void remove(int indexOfObjectToRemove) {
         MyNode<SomeType> current = headNode;
         Integer index =0;
+        while ()
 
 
     }
@@ -76,10 +77,13 @@ public class MyLinkedList<SomeType> implements MyCollectionInterface<SomeType>{
     @Override
     public SomeType get(int indexOfElement) {
         Integer index = 0;
-        for (SomeType currentElement:this) {
-            if (indexOfElement == index) {
-                return currentElement;
+        MyNode<SomeType> current = headNode;
+        while(current!=null) {
+            if (indexOfElement==index) {
+                return current.getData();
             }
+
+            current = current.getNext();
             index++;
         }
         return null;
