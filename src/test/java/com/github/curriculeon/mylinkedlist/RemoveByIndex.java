@@ -23,9 +23,10 @@ public class RemoveByIndex {
         // given elements have been added to collection
         for (SomeType someValue : valuesToBePopulatedWith) {
             myCollection.add(someValue);
+
             Boolean myCollectionContainsValue = myCollection.contains(someValue);
             Assert.assertTrue(myCollectionContainsValue);
-        }
+         }
         Integer preRemoveLength = myCollection.size(); // get size of collection
         Integer expectedPreRemoveLength = valuesToBePopulatedWith.length;
         Assert.assertEquals(expectedPreRemoveLength, preRemoveLength); // ensure length is correct

@@ -47,7 +47,7 @@ public class MyLinkedList<SomeType> implements MyCollectionInterface<SomeType>{
         MyNode<SomeType> nodeToAdd = new MyNode<>();
         nodeToAdd.setData(objectToRemove);
         if (headNode.getData() == objectToRemove) {
-            headNode.setData(null);
+            headNode = headNode.getNext();
             return;
         }
         MyNode<SomeType> current = headNode;
@@ -67,9 +67,7 @@ public class MyLinkedList<SomeType> implements MyCollectionInterface<SomeType>{
 
     @Override
     public void remove(int indexOfObjectToRemove) {
-        MyNode<SomeType> current = headNode;
-        Integer index =0;
-        while ()
+        remove(get(indexOfObjectToRemove));
 
 
     }
@@ -104,7 +102,15 @@ public class MyLinkedList<SomeType> implements MyCollectionInterface<SomeType>{
 
     @Override
     public Integer size() {
-        return null;
+        Integer length = 0;
+        MyNode<SomeType> current = headNode;
+        while(current != null) {
+            length++;
+            current = current.getNext();
+
+        }
+
+        return length;
     }
 
     @Override
