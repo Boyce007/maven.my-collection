@@ -32,7 +32,5 @@ public class MyNode<SomeType> {
         }
             this.next = next;
 
-
-
     }
 }
