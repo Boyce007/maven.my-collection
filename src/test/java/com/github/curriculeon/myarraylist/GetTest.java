@@ -17,7 +17,7 @@ import java.util.Date;
 public class GetTest {
     //given
     private <SomeType> void test(SomeType... valuesToBePopulatedWith) {
-        MyArrayList<SomeType> myList = new MyArrayList<>(valuesToBePopulatedWith);
+        MyArrayList<SomeType> myList = new MyArrayList<>();
         ImportChecker.scanClass(myList.getClass());
         MyCollectionInterface<SomeType> myCollection = (MyCollectionInterface<SomeType>) myList;
 

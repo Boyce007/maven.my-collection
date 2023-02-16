@@ -15,10 +15,9 @@ public class MyArrayList<SomeType> implements MyCollectionInterface<SomeType> {
 
     public MyArrayList(SomeType[] valuesToBePopulatedWith) {
         content = (SomeType[]) new Object[1];
+        content = valuesToBePopulatedWith;
 
-        for (SomeType value:valuesToBePopulatedWith) {
-            add(value);
-        }
+
 
 
 
@@ -56,6 +55,17 @@ public class MyArrayList<SomeType> implements MyCollectionInterface<SomeType> {
 
     @Override
     public SomeType get(int indexOfElement) {
+
+        for (int i = 0; i < content.length; i++) {
+            SomeType currentElement = content[i];
+            if (currentElement == null) {
+                continue;
+            }
+            if(indexOfElement == i) {
+                return currentElement;
+            }
+
+        }
         return null;
     }
 
@@ -63,7 +73,7 @@ public class MyArrayList<SomeType> implements MyCollectionInterface<SomeType> {
     public Boolean contains(SomeType objectToCheckFor) {
         for (int i = 0; i < content.length; i++) {
             SomeType  currentElement = content[i];
-            if (objectToCheckFor ==currentElement ) {
+            if (objectToCheckFor == currentElement ) {
                 return true;
             }
 
