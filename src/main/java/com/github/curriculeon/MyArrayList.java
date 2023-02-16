@@ -15,6 +15,7 @@ public class MyArrayList<SomeType> implements MyCollectionInterface<SomeType> {
 
     public MyArrayList(SomeType[] valuesToBePopulatedWith) {
         content = (SomeType[]) new Object[1];
+
         for (SomeType value:valuesToBePopulatedWith) {
             add(value);
         }
@@ -31,7 +32,9 @@ public class MyArrayList<SomeType> implements MyCollectionInterface<SomeType> {
             // If we don't enough space , we need create more space
             Integer newSize = content.length + RE_SIZE;
             SomeType[] newContent = (SomeType[])  new Object[newSize];
-            System.arraycopy(content, 0, newContent, 0 , content.length);
+            for (int i = 0; i < content.length; i++) {
+                newContent[i] = content[i];
+            }
             content = newContent;
         }
         // place element where ever index is
@@ -58,7 +61,15 @@ public class MyArrayList<SomeType> implements MyCollectionInterface<SomeType> {
 
     @Override
     public Boolean contains(SomeType objectToCheckFor) {
-        return null;
+        for (int i = 0; i < content.length; i++) {
+            SomeType  currentElement = content[i];
+            if (objectToCheckFor ==currentElement ) {
+                return true;
+            }
+
+        }
+
+        return false;
     }
 
     @Override
