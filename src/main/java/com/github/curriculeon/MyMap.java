@@ -1,9 +1,11 @@
 package com.github.curriculeon;
 
 public class MyMap<KeyType, ValueType> implements MyMapInterface<KeyType,ValueType> {
+   private MyArrayList<KeyValue> keyValue;
     @Override
     public void put(KeyType key, ValueType value) {
-
+        KeyValue<KeyType,ValueType> valueToPut = new KeyValue<>(key,value)
+        keyValue.add(valueToPut);
     }
 
     @Override

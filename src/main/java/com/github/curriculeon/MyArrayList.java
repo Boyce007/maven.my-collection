@@ -45,11 +45,29 @@ public class MyArrayList<SomeType> implements MyCollectionInterface<SomeType> {
     @Override
     public void remove(SomeType objectToRemove) {
 
+        SomeType[] newContent = (SomeType[]) new Object[content.length];
+        Integer newIndex = 0;
+        for(int x = 0; x < content.length; x++){
+            SomeType currentElement = content[x];
+            if( currentElement == null) {
+                continue;
+            }
+            if(!currentElement.equals(objectToRemove) ){
+                newContent[newIndex] = content[x];
+                newIndex++;
+            }else {
+
+                index --;
+            }
+        }
+        content = newContent;
+
 
     }
 
     @Override
     public void remove(int indexOfObjectToRemove) {
+        remove(get(indexOf(indexOfObjectToRemove)));
 
     }
 
@@ -85,6 +103,19 @@ public class MyArrayList<SomeType> implements MyCollectionInterface<SomeType> {
     @Override
     public Integer size() {
         return index;
+    }
+
+    public int indexOf(Object o) {
+
+        for (int i = 0; i < content.length; i++) {
+            if(content[i] == null) {
+                continue;
+            }
+            if(content[i].equals(o)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
