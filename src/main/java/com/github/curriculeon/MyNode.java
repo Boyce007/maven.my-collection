@@ -27,7 +27,7 @@ public class MyNode<SomeType> {
     }
 
     public void setNext(MyNode<SomeType> next) {
-        if (next.equals(this)) {
+        if (next == this) {
             throw new IllegalArgumentException();
         }
             this.next = next;
