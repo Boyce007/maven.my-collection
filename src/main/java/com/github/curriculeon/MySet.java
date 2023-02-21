@@ -3,20 +3,32 @@ package com.github.curriculeon;
 import java.util.Iterator;
 
 public class MySet<SomeType> implements MyCollectionInterface<SomeType>{
+     private  MyArrayList<SomeType> content;
     public MySet() {
+        content = new MyArrayList<>();
+
     }
 
-    public MySet(Object[] valuesToBePopulatedWith) {
+    public MySet(SomeType[] valuesToBePopulatedWith) {
+        content = new MyArrayList<>();
+        for (SomeType obj:valuesToBePopulatedWith) {
+            add(obj);
+        }
+
 
     }
 
     @Override
     public void add(SomeType objectToAdd) {
+        if (!content.contains(objectToAdd)) {
+            content.add(objectToAdd);
+        }
 
     }
 
     @Override
     public void remove(SomeType objectToRemove) {
+        content.remove(objectToRemove);
 
     }
 
@@ -27,17 +39,18 @@ public class MySet<SomeType> implements MyCollectionInterface<SomeType>{
 
     @Override
     public SomeType get(int indexOfElement) {
-        return null;
+
+        return content.get(indexOfElement);
     }
 
     @Override
     public Boolean contains(SomeType objectToCheckFor) {
-        return null;
+        return content.contains(objectToCheckFor);
     }
 
     @Override
     public Integer size() {
-        return null;
+        return content.size();
     }
 
     @Override

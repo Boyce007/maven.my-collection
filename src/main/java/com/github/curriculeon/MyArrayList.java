@@ -91,7 +91,7 @@ public class MyArrayList<SomeType> implements MyCollectionInterface<SomeType> {
     public Boolean contains(SomeType objectToCheckFor) {
         for (int i = 0; i < content.length; i++) {
             SomeType  currentElement = content[i];
-            if (objectToCheckFor == currentElement ) {
+            if (objectToCheckFor.equals(currentElement)) {
                 return true;
             }
 
