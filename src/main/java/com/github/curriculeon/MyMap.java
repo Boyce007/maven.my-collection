@@ -22,11 +22,18 @@ public class MyMap<KeyType, ValueType> implements MyMapInterface<KeyType,ValueTy
 
     @Override
     public MySet<KeyType> getKeySet() {
+        MySet<KeyType> set = new MySet<>();
+        for (int i = 0; i < keyValue.size(); i++) {
+            KeyValue currentElement = keyValue.get(i);
+            KeyType currentKey = (KeyType) currentElement.getKey();
+            set.add(currentKey);
+        }
         return null;
     }
 
     @Override
     public MyCollectionInterface<ValueType> getValues() {
+
         return null;
     }
 
