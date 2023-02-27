@@ -13,7 +13,7 @@ import java.util.Date;
  * @created 12/15/2019
  */
 @SuppressWarnings("all")
-public class RemoveTest {
+public class RemoveHeadTest {
     //given
     private <SomeType> void test(SomeType... valuesToBePopulatedWith) {
         MyArrayList<SomeType> myList = new MyArrayList<>();
